@@ -1,25 +1,51 @@
 (ns clojturtle.core
   (:require [clojure.set :as set]
-            [clojure-turtle.core :refer :all]))
+            [clojure-turtle.core :refer :all]
+            [clojturtle.tree :as tree]))
 
-(setxy 100 -200)
 
-(defn tree [tcolor minl length]
-  (let [r (first tcolor)
-        g (second tcolor)
-        b (last tcolor)]
-  (color tcolor)
+(defn spiral [minl ang length]
   (if (< length minl)
+    nil
     (do (forward length)
-        (back length))
-    (do (forward length)
-        (left 25)
-        (tree [(+ 40 r) g (- b 10)] minl (* length 0.8))
-        (right 75)
-        (tree [r (+ g 10) b] minl (* length 0.5))
-        (left 50)
-        (back length)))))
+        (right ang)
+        (wait 10)
+        (spiral minl ang (- length minl))
+        (left ang)
+        (back length))))
+
+(defn koch [minl length]
+  (if (< length minl)
+    (forward length)
+    (do 
+      (koch minl (/ length 3.0))
+      (left 60)
+      (koch minl (/ length 3.0))
+      (right 120)
+      (koch minl (/ length 3.0))
+      (left 60)
+      (koch minl (/ length 3.0))
+      )))
+
+(defn cline [minl length]
+  (if (< length minl)
+    (forward length)
+    (do
+      (left 90)
+      (cline minl (/ length 2.0))
+      (right 90)
+      (cline minl (/ length 2.0))
+      (cline minl (/ length 2.0))
+      (right 90)
+      (cline minl (/ length 2.0))
+      (left 90)
+      )))
 
 (defn -main []
   (new-window {:size [920 900]})
-  (tree [0 0 255] 5 200))
+  (setxy 100 -200)
+  (tree/tree [50 50 255] 5 200 true)
+  (clean)
+  (setxy -100 -200)
+  (spiral 5 60 300))
+
