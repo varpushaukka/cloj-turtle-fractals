@@ -24,8 +24,7 @@
       (right 120)
       (koch minl (/ length 3.0))
       (left 60)
-      (koch minl (/ length 3.0))
-      )))
+      (koch minl (/ length 3.0)))))
 
 (defn cline [minl length]
   (if (< length minl)
@@ -38,8 +37,7 @@
       (cline minl (/ length 2.0))
       (right 90)
       (cline minl (/ length 2.0))
-      (left 90)
-      )))
+      (left 90))))
 
 (defn sierpi [minl length]
   (doseq [x (range 3)]

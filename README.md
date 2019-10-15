@@ -1,12 +1,12 @@
 # clojturtle
 
-Clojure turtle fractal examples
+clojure-turtle fractal examples
 
 ## tree
 
 ![tree-fractal](tree.png)
 
-## c curve
+## c-curve
 
 ![cline-fractal](cline.png)
 
