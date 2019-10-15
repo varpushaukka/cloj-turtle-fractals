@@ -41,6 +41,15 @@
       (left 90)
       )))
 
+(defn sierpi [minl length]
+  (doseq [x (range 3)]
+    (do
+      (when (> length minl) (sierpi minl (/ length 2.0)))
+      (wait 10)
+      (forward length)
+      (right 120))))
+      
+
 (defn -main []
   (new-window {:size [920 900]})
   (setxy 100 -200)

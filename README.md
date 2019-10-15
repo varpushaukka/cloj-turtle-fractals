@@ -6,13 +6,33 @@ Clojure turtle fractal examples
 
 ![tree-fractal](tree.png)
 
-## cline
+## c curve
 
 ![cline-fractal](cline.png)
 
+## sierpinski
+![sierpinski-fractal](sierp.png)
+
 ## Usage
 
-lein run
+`lein repl`
+`(new-window {:size [920 900]})`
+
+### tree
+`(setxy 100 -200)`
+
+`(tree/tree [0 100 100] 5 200 true)`
+
+### Lévy C curve
+`(setxy -100 -200)`
+
+`(cline 8 300)`
+
+### Sierpiński
+`(setxy -400 -400)`
+
+`(sierpi 15 800)`
+
 
 ## License
 
