@@ -26,6 +26,20 @@
       (left 60)
       (koch minl (/ length 3.0)))))
 
+(defn squarekoch [minl length]
+  (if (= minl 0)
+      (forward length)
+      (do 
+        (squarekoch (dec minl) length)
+        (right 90)
+        (squarekoch (dec minl) length)
+        (left 90)
+        (squarekoch (dec minl) length)
+        (left 90)
+        (squarekoch (dec minl) length)
+        (right 90)
+        (squarekoch (dec minl) length))))
+
 (defn cline [minl length]
   (if (< length minl)
     (forward length)

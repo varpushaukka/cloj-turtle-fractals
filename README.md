@@ -13,6 +13,9 @@ clojure-turtle fractals
 ## sierpinski
 ![sierpinski-fractal](sierp.png)
 
+## koch
+![koch-curve](koch.png)
+
 ## Usage
 
 `lein repl`
@@ -32,6 +35,9 @@ clojure-turtle fractals
 `(setxy -400 -400)`
 
 `(sierpi 15 800)`
+
+### Koch curve (regular and quadratic type)
+`(do (clean) (setxy -200 -400) (koch 20 800) (setxy 0 -400) (squarekoch 4 10))`
 
 
 ## License

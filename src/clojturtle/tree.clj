@@ -31,3 +31,17 @@
           (tree [r (+ g 10) b] minl (* length 0.5) leafy?)
           (left 50)
           (back length)))))
+
+(defn simptree [minl length]
+  (if (< length minl)
+    (do
+      (forward length)
+      (back length))
+    (do
+      (forward length)
+      (left 25)
+      (simptree minl (* length 0.8))
+      (right 75)
+      (simptree minl (* length 0.5))
+      (left 50)
+      (back length))))
