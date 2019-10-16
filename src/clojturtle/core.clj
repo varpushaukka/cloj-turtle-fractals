@@ -40,8 +40,8 @@
       (left 90))))
 
 (defn sierpi [minl length]
-  (doseq [x (range 3)]
-    (do
+  (repeat 3
+    (all
       (when (> length minl) (sierpi minl (/ length 2.0)))
       (wait 10)
       (forward length)

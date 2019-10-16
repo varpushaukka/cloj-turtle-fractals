@@ -1,6 +1,6 @@
 # clojturtle
 
-clojure-turtle fractal examples
+clojure-turtle fractals
 
 ## tree
 
