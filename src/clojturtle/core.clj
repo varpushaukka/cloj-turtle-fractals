@@ -60,6 +60,59 @@
       (wait 10)
       (forward length)
       (right 120))))
+
+(defn tile [dep length]
+  (if (= 0 dep)
+    (forward length)
+    (do
+      (tile (dec dep) length)
+      (tile (dec dep) length)
+      (right 90)
+      (tile (dec dep) length)
+      (left 90)
+      (tile (dec dep) length)
+      (right 90)
+      (tile (dec dep) length)
+      (right 90)
+      (tile (dec dep) length)
+      (tile (dec dep) length)      
+      ))
+  )
+
+(defn rings [dep length]
+  (if (zero? dep)
+    (forward length)
+    (do
+      (rings (dec dep) length)
+      (rings (dec dep) length)
+      (right 90)
+      (rings (dec dep) length)
+      (right 90)
+      (rings (dec dep) length)
+      (right 90)
+      (rings (dec dep) length)
+      (right 90)
+      (rings (dec dep) length)
+      (right 90)
+      (rings (dec dep) length)
+      (left 90)
+      (rings (dec dep) length))))
+
+(defn terdragon [dep length tcolor]
+  (let [r (first tcolor)
+        g (second tcolor)
+        b (last tcolor)]
+    (color tcolor)
+    (if (zero? dep)
+      (forward length)
+      (do 
+        (terdragon (dec dep) length [(+ 20 r) g (/ b dep)])
+        (left 120)
+        (terdragon (dec dep) length [r (+ g 40) b])
+        (right 120)
+        (terdragon (dec dep) length [r (+ 60 g) (+ 60 b)])
+        ))))
+
       
 
 (defn -main []

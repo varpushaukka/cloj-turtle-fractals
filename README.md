@@ -16,6 +16,15 @@ clojure-turtle fractals
 ## koch
 ![koch-curve](koch.png)
 
+## rings
+![rings](rings.png)
+
+## terdragon
+![terdragon-curve](terdragon.png)
+
+## this.. tile thing?
+![tiles](tile.png)
+
 ## Usage
 
 `lein repl`
@@ -37,7 +46,13 @@ clojure-turtle fractals
 `(sierpi 15 800)`
 
 ### Koch curve (regular and quadratic type)
-`(do (clean) (setxy -200 -400) (koch 20 800) (setxy 0 -400) (squarekoch 4 10))`
+`(clean) (setxy -200 -400) (koch 20 800) (setxy 0 -400) (squarekoch 4 10)`
+
+### Rings
+`(new-window {:size [1700 900]}) (setxy -835 100) (rings 5 5)`
+
+### Terdragon
+`(setxy -635 0) (clean) (terdragon 9 8 [150 -100 110])`
 
 
 ## License
