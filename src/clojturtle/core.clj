@@ -26,19 +26,19 @@
       (left 60)
       (koch minl (/ length 3.0)))))
 
-(defn squarekoch [minl length]
-  (if (= minl 0)
+(defn squarekoch [dep length]
+  (if (zero? dep)
       (forward length)
       (do 
-        (squarekoch (dec minl) length)
+        (squarekoch (dec dep) length)
         (right 90)
-        (squarekoch (dec minl) length)
+        (squarekoch (dec dep) length)
         (left 90)
-        (squarekoch (dec minl) length)
+        (squarekoch (dec dep) length)
         (left 90)
-        (squarekoch (dec minl) length)
+        (squarekoch (dec dep) length)
         (right 90)
-        (squarekoch (dec minl) length))))
+        (squarekoch (dec dep) length))))
 
 (defn cline [minl length]
   (if (< length minl)
@@ -62,7 +62,7 @@
       (right 120))))
 
 (defn tile [dep length]
-  (if (= 0 dep)
+  (if (zero? dep)
     (forward length)
     (do
       (tile (dec dep) length)
@@ -112,6 +112,50 @@
         (right 120)
         (terdragon (dec dep) length [r (+ 60 g) (+ 60 b)])
         ))))
+
+(defn pentaplex [dep length]
+  (if (zero? dep)
+    (forward length)
+    (do
+      (pentaplex (dec dep) length)
+      (right 36)
+      (right 36)
+      (pentaplex (dec dep) length)
+      (right 36)
+      (right 36)
+      (pentaplex (dec dep) length)
+      (right 180)
+      (pentaplex (dec dep) length)
+      (left 36)
+      (pentaplex (dec dep) length)
+      (right 36)
+      (right 36)
+      (pentaplex (dec dep) length)      
+      )))
+
+
+(declare dragon2)
+
+(defn dragon [dep length]
+  (if (zero? dep)
+       (forward length)
+       (do
+         (dragon (dec dep) length)
+         (right 90)
+         (dragon2 (dec dep) length)
+         (forward length)
+         (right 90)
+         )))
+
+(defn dragon2 [dep length]
+  (if (zero? dep)
+    (forward length)
+    (do 
+      (left 90)
+      (forward length)
+      (dragon (dec dep) length)
+      (left 90)
+      (dragon2 (dec dep) length))))
 
       
 

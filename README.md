@@ -26,6 +26,12 @@ clojure-turtle fractals
 ## terdragon
 ![terdragon-curve](terdragon.png)
 
+## pentaplex
+![pentaplex](pentaplex.png)
+
+## dragon curve
+![dragon-curve](dragon.png)
+
 
 ## Usage
 
@@ -59,6 +65,11 @@ clojure-turtle fractals
 ### Terdragon
 `(setxy -635 0) (clean) (terdragon 9 8 [150 -100 110])`
 
+### Pentaplex
+`(repeat 5 (all (pentaplex 4 10) (right 36) (right 36)))`
+
+### Dragon curve
+` (setxy -435 -250) (clean) (right 180) (dragon 13 4)`
 
 ## License
 
