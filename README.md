@@ -60,7 +60,8 @@ clojure-turtle fractals
 `(repeat 4 (all (tile 4 10) (right 90)))`
 
 ### Rings
-`(new-window {:size [1700 900]}) (setxy -835 100) (rings 5 5)`
+`(repeat 4 (all (rings 4 5) (right 90)))`
+
 
 ### Terdragon
 `(setxy -635 0) (clean) (terdragon 9 8 [150 -100 110])`
